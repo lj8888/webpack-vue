@@ -1,6 +1,9 @@
 //这个就是webpack的配置文件
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
 //需要暴露一个对象，注意：这里用的暴露的方式还是commonjs方式
 module.exports = {
     //模式
@@ -21,5 +24,18 @@ module.exports = {
             filename:'abc.html',
             template:'./index.html',//将index.html作为生成的文件模板
         }),
-    ]
+        new CopyWebpackPlugin([
+            {
+                from:'./lib/jquery.min.js',
+                to:'lib'
+            }
+        ]),
+    ],
+    //解析
+    resolve:{
+        //别名
+        alias:{
+            vue:'vue/dist/vue.esm.js'
+        }
+    }
 }

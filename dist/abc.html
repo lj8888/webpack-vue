@@ -2,12 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    <h1>我是一个项目</h1>
+    <h1 id="h1">我是一个项目</h1>
+<div id="app">
+    {{msg}}
+</div>
+<script src="./lib/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('#h1').html('呵呵呵呵');
+    })
+</script>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
