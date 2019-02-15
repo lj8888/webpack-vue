@@ -16,6 +16,28 @@ module.exports = {
         path: path.resolve(__dirname,'./dist'), //根目录下的dist文件夹
         filename:'bundle.js',
     },
+    module:{
+        //定义加载器的规则
+        rules:[
+            { 
+                //找到使用的什么模块
+                test:/\.css$/,
+                //要是有什么要的加载器去处理这个模块文件(倒着写)
+                use:[
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test:/\.scss$/,
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }
+        ]
+    },
     //插件
     plugins:[
         //自动生成一个HTML文件在出口的位置，并在生成的文件中引入打包生成的js文件
